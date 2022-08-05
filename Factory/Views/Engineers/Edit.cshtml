@@ -2,19 +2,22 @@
   Layout = "_Layout";
 }
 
-@model Factory.Models.Engineer
+@model Factory.Models.Engineer;
 
-<h2>Edit</h2>
+<h2>Edit Engineer</h2>
 
-<h4>Edit this engineer: @Html.DisplayFor(model => model.Description)</h4>
+<h4>Edit this Engineer: @Html.DisplayFor(model => model.Name)</h4>
 
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.EngineerId)
 
-  @Html.LabelFor(model => model.Description)
-  @Html.EditorFor(model => model.Description)
+  @Html.LabelFor(model => model.Name)
+  @Html.EditorFor(model => model.Name, new { required = "required" })
 
-  <input type="submit" value="Save" />
+  @* @Html.LabelFor(model => model.DateHired)
+  @Html.TextBoxFor(model => model.DateHired, new { type = "date", required = "required" }) *@
+
+  <input class = "myCssClass" type="submit" value="Save" />
 }
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Back to Engineers", "Index")</p>
