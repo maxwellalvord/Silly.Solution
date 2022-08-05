@@ -1,8 +1,9 @@
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
-using Factory.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Factory.Models;
 
 namespace Factory.Controllers
 {
@@ -14,18 +15,15 @@ namespace Factory.Controllers
     {
       _db = db;
     }
-
     public ActionResult Index()
     {
       List<Engineer> model = _db.Engineers.ToList();
       return View(model);
     }
-
     public ActionResult Create()
     {
       return View();
     }
-
     [HttpPost]
     public ActionResult Create(Engineer engineer)
     {
@@ -33,7 +31,6 @@ namespace Factory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
     public ActionResult Details(int id)
     {
       var thisEngineer = _db.Engineers
@@ -44,10 +41,10 @@ namespace Factory.Controllers
     }
     public ActionResult Edit(int id)
     {
+      // ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
       var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
       return View(thisEngineer);
     }
-
     [HttpPost]
     public ActionResult Edit(Engineer engineer)
     {
@@ -55,19 +52,25 @@ namespace Factory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
     public ActionResult Delete(int id)
     {
       var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
       return View(thisEngineer);
     }
-
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      _db.Engineers.Remove(thisEngineer);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
     public ActionResult AddMachine(int id)
     {
         var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+        ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
         return View(thisEngineer);
     }
-
     [HttpPost]
     public ActionResult AddMachine(Engineer engineer, int MachineId)
     {
