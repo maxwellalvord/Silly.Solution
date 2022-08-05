@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Factory.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -39,8 +39,8 @@ namespace Factory.Migrations
                 {
                     EngineerMachineId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    MachineId = table.Column<int>(type: "int", nullable: false),
-                    EngineerId = table.Column<int>(type: "int", nullable: false)
+                    EngineerId = table.Column<int>(type: "int", nullable: false),
+                    MachineId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
