@@ -4,7 +4,7 @@
 
 @model Factory.Models.Engineer;
 
-<h2>Edit Engineer</h2>
+<h2>Edit a Engineer.</h2>
 
 <h4>Edit this Engineer: @Html.DisplayFor(model => model.Name)</h4>
 
@@ -18,6 +18,6 @@
   @* @Html.LabelFor(model => model.DateHired)
   @Html.TextBoxFor(model => model.DateHired, new { type = "date", required = "required" }) *@
 
-  <input class = "myCssClass" type="submit" value="Save" />
+  <input type="submit" value="Save" />
 }
 <p>@Html.ActionLink("Back to Engineers", "Index")</p>
