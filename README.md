@@ -18,7 +18,7 @@
 
 This is a MVC Webpage that have many to many functionality within the MySQL database and the program built. The user may add Machines and/or Engineers and have them organized in such a way that a machine may have multiple engineers assigned to it and a engineer can be assigned to multiple different machines. 
 
-## Setup/Installation Requirements 🖊️
+## Setup/Installation Requirements
 
 * $ git clone <https://github.com/maxwellalvord/Silly.Solution>
 * $ cd Silly.Solution

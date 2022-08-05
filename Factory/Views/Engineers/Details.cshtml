@@ -9,6 +9,7 @@
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 @* <h3>@Html.DisplayNameFor(model => model.DateHired): @Html.DisplayFor(model => model.DateHired)</h3> *@
 
+<div id="details">
 @if(@Model.JoinEntities.Count == 0)
   {
     <p>This Engineer does not have any Machines assigned yet</p>
@@ -33,3 +34,4 @@
 <p>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Back to Engineers", "Index")</p> 
+</div>

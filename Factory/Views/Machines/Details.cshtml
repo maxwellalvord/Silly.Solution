@@ -8,7 +8,7 @@
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 
-
+<div id="details">
 @if(@Model.JoinEntities.Count == 0)
 {
   <p>This Machines does have any Engineers currently</p>
@@ -34,3 +34,4 @@ else
 <p>@Html.ActionLink("Back to Machines", "Index")</p>
 <p>@Html.ActionLink("Edit Machine", "Edit", new { id = Model.MachineId })</p>
 <p>@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })</p>
+</div>
