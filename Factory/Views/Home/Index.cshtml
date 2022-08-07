@@ -1,8 +1,37 @@
-﻿
-@{
+﻿@{
   Layout = "_Layout";
 }
-<div id="default">
-  <h1>Welcome to the To Do List!</h1>
-  <p>@Html.ActionLink("See all machines", "Index", "Machines")</p> <p>@Html.ActionLink("See all engineers", "Index", "Engineers")</p>
-</div>
+
+@using Factory.Models;
+
+<h1>Welcome to your factory!</h1>
+
+
+<h1>your current Engineers</h1>
+
+@if (@ViewBag.EngineerList.Count == 0)
+{
+  <h3>You don't have any engineers!</h3>
+} 
+
+@foreach (Engineer engineer in @ViewBag.EngineerList)
+{
+  <li>@Html.ActionLink($"{engineer.Name}", "Details", "Engineers", new { id = engineer.EngineerId })</li>
+}
+<p>@Html.ActionLink("See all engineer info", "Index", "Engineers")</p>
+
+<h1>your current Machines</h1>
+
+@if (@ViewBag.MachineList.Count == 0)
+{
+  <h3>You don't have any machines!</h3>
+} 
+
+@foreach (Machine machine in @ViewBag.MachineList)
+{
+  <li>@Html.ActionLink($"{machine.Name}", "Details", "Machines", new { id = machine.MachineId })</li>
+}
+<p>@Html.ActionLink("See all machine info", "Index", "Machines")</p>
+
+
+
